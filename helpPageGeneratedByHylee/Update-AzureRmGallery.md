@@ -13,7 +13,7 @@ Update a gallery.
 ## SYNTAX
 
 ```
-Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Gallery] <PSGallery> [-AsJob]
+Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [[-Description] <String>] [[-Location] <String>] [[-Tag] <Hashtable>] [-AsJob]
  [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -24,7 +24,7 @@ Update a gallery.
 
 ### Example 1
 ```powershell
-PS C:\> Update-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName -Gallery $galleryObject
+PS C:\> Update-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName [-Description] $galleryDescription [-Location] $location
 ```
 
 Update a gallery.
@@ -61,18 +61,48 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Gallery
-Specifies the local gallery object that you want to update.
+### -Description
+The description of this gallery resource.
 
 ```yaml
-Type: PSGallery
+Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 3
+Required: False
+Position: 0
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Location
+Resource location
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Tag
+Resource tags
+
+```yaml
+Type: Hashtable
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
