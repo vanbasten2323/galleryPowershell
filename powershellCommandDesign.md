@@ -27,7 +27,6 @@
     - `{ Ferry Susanto: ferrys@microsoft.com, ferrysusanto }`
 
 
-
 ## High Level Scenarios
 
 - Describe how your feature is intended to be used by customers.
@@ -42,20 +41,17 @@
       - Remove-AzureRmGallery
     
 ## Piping scenarios / how these cmdlets are used with existing cmdlets
-    - Get-AzureRmGallery | Remove-AzureRmGallery
-    - Get-AzureRmGallery | Update-AzureRmGallery
+    - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -GalleryName $galleryName | Remove-AzureRmGallery
+    - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -GalleryName $galleryName | Update-AzureRmGallery  -Description $galleryDescription
    
 ## Sample of end-to-end usage
 ### Create a gallery
 ```
-New-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-Description] $galleryDescription [-Location] $location 
-
-or 
 New-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [[-Description] $galleryDescription] [-Location] $location 
 ```
 ### Update a gallery
 ```
-Update-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-Description] $galleryDescription [-Location] $location
+Update-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [[-Description] $galleryDescription] [-Location] $location
 ```
 ### Get a gallery
 ```
@@ -71,31 +67,27 @@ Remove-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $ga
 This should include PowerShell-help style syntax descriptions of all new and changed cmdlets, similar to the syntax portion of PowerShell help (or markdown help), for example:
 
 
-### New Cmdlet ```New-AzureRmGallery```
+### New Cmdlet [New-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGallery.md)
 
 
 ``` powershell
-PS C:\> New-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Description] <String> [-Location] <String>
+PS C:\> New-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [[-Description] <String>] [-Location] <String>
 ```
 
-### New Cmdlet ```Update-AzureRmGallery```
+### New Cmdlet [Update-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Update-AzureRmGallery.md)
 
 
 ``` powershell
-PS C:\> Update-AzureRmGallery [[-ResourceGroupName] <String>] [[-GalleryName] <String>] [[-Description] <String>] [[-Location] <String>]
-
-or
-
-PS C:\> Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Description] <String> [-Location] <String>
+PS C:\> Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [[-Description] <String>] [-Location] <String>
 ```
 
-### New Cmdlet ```Get-AzureRmGallery```
+### New Cmdlet [Get-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Get-AzureRmGallery.md)
 
 
 ``` powershell
 PS C:\> Get-AzureRmGallery [[-ResourceGroupName] <String>] [[-GalleryName] <String>] 
 ```
-### New Cmdlet ```Remove-AzureRmGallery```
+### New Cmdlet [Remove-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Remove-AzureRmGallery.md)
 
 
 ``` powershell
