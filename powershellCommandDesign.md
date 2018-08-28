@@ -75,22 +75,37 @@ Get-AzureRmGallery [[-ResourceGroupName] $resourceGroupName] [[-GalleryName] $ga
 ```
 Remove-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName]
 ```
-
 ### Create a gallery image
 ```
 New-AzureRmGalleryImage [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-GalleryImageName] $galleryImageName [-Location] $location [-IdentifierPublisher] $publisherName [-IdentifierOffer] $offerName [-IdentifierSku] $skuName [-OsState] "Generalized" [-OsType] "Linux" [[-Description] $description] [[-Eula] $eula] [[-PrivacyStatementUri] $privacyStatementUri] [[-ReleaseNoteUri] $releaseNoteUri] [-DisallowedDiskType $disallowedDiskTypes] [-EndOfLifeDate $endOfLifeDate] [-Memory $memoryRange] [-VCPU $vCPURange] [-PurchasePlanName $purchasePlanName] [-PurchasePlanProduct $purchasePlanProduct] [-PurchasePlanPublisher $purchasePlanPublisher]  // TODO: what to do with the type "ResourceRange"?
 ```
-### Update a gallery
+### Update a gallery image
 ```
 Update-AzureRmGalleryImage [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-GalleryImageName] $galleryImageName [-Location] $location [-IdentifierPublisher] $publisherName [-IdentifierOffer] $offerName [-IdentifierSku] $skuName [-OsState] "Generalized" [-OsType] "Linux" [[-Description] $description] [[-Eula] $eula] [[-PrivacyStatementUri] $privacyStatementUri] [[-ReleaseNoteUri] $releaseNoteUri] [-DisallowedDiskType $disallowedDiskTypes] [-EndOfLifeDate $endOfLifeDate] [-Memory $memoryRange] [-VCPU $vCPURange] [-PurchasePlanName $purchasePlanName] [-PurchasePlanProduct $purchasePlanProduct] [-PurchasePlanPublisher $purchasePlanPublisher]  // TODO: what to do with the type "ResourceRange"?
 ```
-### Get a gallery
+### Get a gallery image
 ```
-Get-AzureRmGallery [[-ResourceGroupName] $resourceGroupName] [[-GalleryName] $galleryName]
+Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image
 ```
-### Delete a gallery
+### Delete a gallery image
 ```
 Remove-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName
+```
+### Create a gallery image version
+```
+
+```
+### Update a gallery image version
+```
+
+```
+### Get a gallery image version
+```
+
+```
+### Delete a gallery image version
+```
+
 ```
 
 ## Syntax changes
@@ -143,7 +158,7 @@ PS C:\> Update-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] 
 
 
 ``` powershell
-PS C:\> Get-AzureRmGalleryImage [[-ResourceGroupName] <String>] [[-GalleryName] <String>] 
+PS C:\> Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [[-GalleryImageName] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>] 
 ```
 ### New Cmdlet [Remove-AzureRmGalleryImage](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Remove-AzureRmGalleryImage.md)
 
