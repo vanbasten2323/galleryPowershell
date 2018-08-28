@@ -89,7 +89,7 @@ Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -Galler
 ```
 ### Delete a gallery image
 ```
-Remove-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName
+Remove-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image
 ```
 ### Create a gallery image version
 ```
@@ -164,5 +164,5 @@ PS C:\> Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <St
 
 
 ``` powershell
-PS C:\> Remove-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String>
+PS C:\> Remove-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
