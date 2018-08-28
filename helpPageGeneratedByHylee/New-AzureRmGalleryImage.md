@@ -13,7 +13,7 @@ Create a gallery image.
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Location] <String> [-IdentifierPublisher] <String> [-IdentifierOffer] <String> [-IdentifierSku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [[-Description] <String>] [[-Eula] <String>] [[-PrivacyStatementUri] <String>] [[-ReleaseNoteUri] <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-Memory <ResourceRange>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Location] <String> [-IdentifierPublisher] <String> [-IdentifierOffer] <String> [-IdentifierSku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [[-Description] <String>] [[-Eula] <String>] [[-PrivacyStatementUri] <String>] [[-ReleaseNoteUri] <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,7 +23,7 @@ Create a gallery image.
 
 ### Example 1
 ```powershell
-PS C:\> New-AzureRmGalleryImage [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-GalleryImageName] $galleryImageName [-Location] $location [-IdentifierPublisher] $publisherName [-IdentifierOffer] $offerName [-IdentifierSku] $skuName [-OsState] "Generalized" [-OsType] "Linux" [[-Description] $description] [[-Eula] $eula] [[-PrivacyStatementUri] $privacyStatementUri] [[-ReleaseNoteUri] $releaseNoteUri] [-DisallowedDiskType $disallowedDiskTypes] [-EndOfLifeDate $endOfLifeDate] [-Memory $memoryRange] [-VCPU $vCPURange] [-PurchasePlanName $purchasePlanName] [-PurchasePlanProduct $purchasePlanProduct] [-PurchasePlanPublisher $purchasePlanPublisher]  // TODO: what to do with the type "ResourceRange"?
+PS C:\> New-AzureRmGalleryImage [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-GalleryImageName] $galleryImageName [-Location] $location [-IdentifierPublisher] $publisherName [-IdentifierOffer] $offerName [-IdentifierSku] $skuName [-OsState] "Generalized" [-OsType] "Linux" [[-Description] $description] [[-Eula] $eula] [[-PrivacyStatementUri] $privacyStatementUri] [[-ReleaseNoteUri] $releaseNoteUri] [-DisallowedDiskType $disallowedDiskTypes] [-EndOfLifeDate $endOfLifeDate] [-MinimumMemory $minMemory] [-MaximumMemory $maxMemory] [-MinimumVCPU $minVCPU] [-MaximumVCPU $maxVCPU] [-PurchasePlanName $purchasePlanName] [-PurchasePlanProduct $purchasePlanProduct] [-PurchasePlanPublisher $purchasePlanPublisher]
 ```
 
 Create a gallery image.
