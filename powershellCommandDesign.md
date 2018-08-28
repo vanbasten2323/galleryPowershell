@@ -1,5 +1,3 @@
-
-
 ## Service Release Details
 
 - Is this an Embargoed Preview, A Public Preview, or a General Release?
@@ -37,8 +35,24 @@
       - Update-AzureRmGallery
     - ` New cmdlets to get a gallery or list galleries. `
       - Get-AzureRmGallery
-    - ` New cmdlets to delete a gallery `
+    - ` New cmdlets to delete a gallery. `
       - Remove-AzureRmGallery
+    - ` New cmdlets to create a gallery image. `
+      - New-AzureRmGalleryImage
+    - ` New cmdlets to update a gallery image. `
+      - Update-AzureRmGalleryImage
+    - ` New cmdlets to get a gallery image or list gallery images. `
+      - Get-AzureRmGalleryImage
+    - ` New cmdlets to delete a gallery image. `
+      - Remove-AzureRmGalleryImage
+    - ` New cmdlets to create a gallery image version. `
+      - New-AzureRmGalleryImageVersion
+    - ` New cmdlets to update a gallery image version. `
+      - Update-AzureRmGalleryImageVersion
+    - ` New cmdlets to get a gallery image version or list gallery image versions. `
+      - Get-AzureRmGalleryImageVersion
+    - ` New cmdlets to delete a gallery image version. `
+      - Remove-AzureRmGalleryImageVersion
     
 ## Piping scenarios / how these cmdlets are used with existing cmdlets
     - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -GalleryName $galleryName | Remove-AzureRmGallery
@@ -47,11 +61,28 @@
 ## Sample of end-to-end usage
 ### Create a gallery
 ```
-New-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [[-Description] $galleryDescription] [-Location] $location 
+New-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-Location] $location [[-Description] $galleryDescription]
 ```
 ### Update a gallery
 ```
-Update-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [[-Description] $galleryDescription] [-Location] $location
+Update-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-Location] $location [[-Description] $galleryDescription] 
+```
+### Get a gallery
+```
+Get-AzureRmGallery [[-ResourceGroupName] $resourceGroupName] [[-GalleryName] $galleryName]
+```
+### Delete a gallery
+```
+Remove-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName]
+```
+
+### Create a gallery image
+```
+New-AzureRmGalleryImage [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-GalleryImageName] $galleryImageName [-Location] $location [-IdentifierPublisher] $publisherName [-IdentifierOffer] $offerName [-IdentifierSku] $skuName [-OsState] "Generalized" [-OsType] "Linux" [[-Description] $description] [[-Eula] $eula] [[-PrivacyStatementUri] $privacyStatementUri] [[-ReleaseNoteUri] $releaseNoteUri] [-DisallowedDiskType $disallowedDiskTypes] [-EndOfLifeDate $endOfLifeDate] [-Memory $memoryRange] [-VCPU $vCPURange] [-PurchasePlanName $purchasePlanName] [-PurchasePlanProduct $purchasePlanProduct] [-PurchasePlanPublisher $purchasePlanPublisher]  // TODO: what to do with the type "ResourceRange"?
+```
+### Update a gallery
+```
+Update-AzureRmGallery [-ResourceGroupName] $resourceGroupName [-GalleryName] $galleryName [-Location] $location [[-Description] $galleryDescription] 
 ```
 ### Get a gallery
 ```
@@ -71,14 +102,14 @@ This should include PowerShell-help style syntax descriptions of all new and cha
 
 
 ``` powershell
-PS C:\> New-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [[-Description] <String>] [-Location] <String>
+PS C:\> New-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Location] <String> [[-Description] <String>] [-Tag <Hashtable>] 
 ```
 
 ### New Cmdlet [Update-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Update-AzureRmGallery.md)
 
 
 ``` powershell
-PS C:\> Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [[-Description] <String>] [-Location] <String>
+PS C:\> Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [[-Description] <String>] [-Location] <String> [-Tag <Hashtable>] 
 ```
 
 ### New Cmdlet [Get-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Get-AzureRmGallery.md)
@@ -92,4 +123,31 @@ PS C:\> Get-AzureRmGallery [[-ResourceGroupName] <String>] [[-GalleryName] <Stri
 
 ``` powershell
 PS C:\> Remove-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String>
+```
+
+### New Cmdlet [New-AzureRmGalleryImage](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGalleryImage.md)
+
+
+``` powershell
+PS C:\> New-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Location] <String> [-IdentifierPublisher] <String> [-IdentifierOffer] <String> [-IdentifierSku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [[-Description] <String>] [[-Eula] <String>] [[-PrivacyStatementUri] <String>] [[-ReleaseNoteUri] <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-Memory <ResourceRange>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-Tag <Hashtable>]
+```
+
+### New Cmdlet [Update-AzureRmGalleryImage](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Update-AzureRmGallery.md)
+
+
+``` powershell
+PS C:\> Update-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [[-Description] <String>] [-Location] <String>
+```
+
+### New Cmdlet [Get-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Get-AzureRmGallery.md)
+
+
+``` powershell
+PS C:\> Get-AzureRmGalleryImage [[-ResourceGroupName] <String>] [[-GalleryName] <String>] 
+```
+### New Cmdlet [Remove-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Remove-AzureRmGallery.md)
+
+
+``` powershell
+PS C:\> Remove-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String>
 ```
