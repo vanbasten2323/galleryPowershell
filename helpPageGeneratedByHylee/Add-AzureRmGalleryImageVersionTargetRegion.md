@@ -1,49 +1,35 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
 Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/new-azurermgalleryimageversion
+online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/add-azurermgalleryimageversiontargetregion
 schema: 2.0.0
 ---
 
-# New-AzureRmGalleryImageVersion
+# Add-AzureRmGalleryImageVersionTargetRegion
 
 ## SYNOPSIS
-Create a gallery image version.
+Add a target region to a gallery image version config.
 
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-GalleryImageVersionName] <String> [-GalleryImageVersion] <PSGalleryImageVersion> [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Add-AzureRmGalleryImageVersionTargetRegion -GalleryImageVersion <PSGalleryImageVersion> -Name <String> [-RegionalReplicaCount <Int32>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Create a gallery image version.
+Add a target region to a gallery image version config.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageName $imageName -GalleryImageVersionName $versionName -GalleryImageVersion $galleryImageVersionObject
+PS C:\> Add-AzureRmGalleryImageVersionTargetRegion -GalleryImageVersion $galleryImageVersionConfig -Name $regionName -RegionalReplicaCount $regionalReplicaCount
+PS C:\> New-AzureRmGalleryImageVersionConfig | Add-AzureRmGalleryImageVersionRegion -Name "West US" -RegionalReplicaCount 2 | Add-AzureRmGalleryImageVersionRegion -Name "East US"
 ```
 
-Create a gallery image version.
+Add a target region to a gallery image version config.
 
 ## PARAMETERS
-
-### -AsJob
-Run cmdlet in the background
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -DefaultProfile
 The credentials, account, tenant, and subscription used for communication with Azure.
@@ -60,23 +46,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -GalleryImageName
-The name of the gallery image.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
 ### -GalleryImageVersion
-Specifies the local gallery image version object that you want to create.
+The gallery image version config.
 
 ```yaml
 Type: PSGalleryImageVersion
@@ -84,29 +55,14 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 4
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -GalleryImageVersionName
-The name of the gallery image version
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryName
-The name of the gallery.
+### -Name
+Target region name.
 
 ```yaml
 Type: String
@@ -120,16 +76,16 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -ResourceGroupName
-The name of the resource group.
+### -RegionalReplicaCount
+Regional replica count.
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 0
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -172,13 +128,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.String
-Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImageVersion
+Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
 
 ## OUTPUTS
 
-### Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImageVersion
+### Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
 
 ## NOTES
 
 ## RELATED LINKS
-

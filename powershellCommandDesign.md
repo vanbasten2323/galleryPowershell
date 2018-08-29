@@ -45,6 +45,10 @@
       - Get-AzureRmGalleryImage
     - ` New cmdlets to delete a gallery image. `
       - Remove-AzureRmGalleryImage
+    - ` New cmdlets to create a gallery image version config. `
+      - New-AzureRmGalleryImageVersionConfig
+    - ` New cmdlets to add a target region to a gallery image version config. `
+      - Add-AzureRmGalleryImageVersionTargetRegion
     - ` New cmdlets to create a gallery image version. `
       - New-AzureRmGalleryImageVersion
     - ` New cmdlets to update a gallery image version. `
@@ -91,9 +95,17 @@ Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -Galler
 ```
 Remove-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image
 ```
+### Create a gallery image version config
+```
+New-AzureRmGalleryImageVersionConfig -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -PublishingProfileExcludeFromLatest $excludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate
+```
+### Add a target region to a gallery image version config
+```
+New-AzureRmGalleryImageVersionConfig | Add-AzureRmGalleryImageVersionRegion -Name "West US" -RegionalReplicaCount 2 | Add-AzureRmGalleryImageVersionRegion -Name "East US"
+```
 ### Create a gallery image version
 ```
-
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageName $imageName -GalleryImageVersionName $versionName -GalleryImageVersion $galleryImageVersionObject
 ```
 ### Update a gallery image version
 ```
@@ -165,4 +177,23 @@ PS C:\> Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <St
 
 ``` powershell
 PS C:\> Remove-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### New Cmdlet [New-AzureRmGalleryImageVersionConfig]()
+
+
+``` powershell
+PS C:\> New-AzureRmGalleryImageVersionConfig [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest <Boolean>] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegions <TargetRegion[]>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+### New Cmdlet [Add-AzureRmGalleryImageVersionTargetRegion]()
+
+
+``` powershell
+PS C:\> Add-AzureRmGalleryImageVersionTargetRegion -GalleryImageVersion <PSGalleryImageVersion> -Name <String> [-RegionalReplicaCount <Int32>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+### New Cmdlet [New-AzureRmGalleryImageVersion]()
+
+
+``` powershell
+PS C:\> New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-GalleryImageVersionName] <String> [-GalleryImageVersion] <PSGalleryImageVersion> [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
