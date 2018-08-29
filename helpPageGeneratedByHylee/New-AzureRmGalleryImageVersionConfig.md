@@ -23,7 +23,6 @@ Create a local gallery image version object to create a gallery image version.
 
 ### Example 1
 ```powershell
-PS C:\> New-AzureRmGalleryImageVersionConfig -Location $loc -SourceImageId $sourceImageId
 PS C:\> New-AzureRmGalleryImageVersionConfig -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -PublishingProfileExcludeFromLatest $excludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate
 ```
 
@@ -31,18 +30,18 @@ Create a local gallery image version object to create a gallery image version.
 
 ## PARAMETERS
 
-### -DefaultProfile
-The credentials, account, tenant, and subscription used for communication with Azure.
+### -Location
+Resource location
 
 ```yaml
-Type: IAzureContextContainer
+Type: String
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases:
 
-Required: False
-Position: Named
+Required: True
+Position: 0
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -61,41 +60,11 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Location
-Resource location
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
 ### -ReplicaCount
 This is the number of source blob copies in a region.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PublishingProfileEndOfLifeDate
-The end of life date of the gallery image version.
-
-```yaml
-Type: DateTime
 Parameter Sets: (All)
 Aliases:
 
@@ -121,6 +90,21 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -PublishingProfileEndOfLifeDate
+The end of life date of the gallery image version.
+
+```yaml
+Type: DateTime
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
 ### -TargetRegions
 The regions where the artifact is going to be published.
 
@@ -133,6 +117,21 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -DefaultProfile
+The credentials, account, tenant, and subscription used for communication with Azure.
+
+```yaml
+Type: IAzureContextContainer
+Parameter Sets: (All)
+Aliases: AzureRmContext, AzureCredential
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

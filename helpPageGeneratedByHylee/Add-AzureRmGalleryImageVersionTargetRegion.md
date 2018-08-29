@@ -8,7 +8,7 @@ schema: 2.0.0
 # Add-AzureRmGalleryImageVersionTargetRegion
 
 ## SYNOPSIS
-Add a target region to a gallery image version config.
+Add a target region to a gallery image version config:  New-AzureRmGalleryImageVersionConfig | Add-AzureRmGalleryImageVersionRegion -Name $regionName -RegionalReplicaCount $regionalReplicaCount
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Add-AzureRmGalleryImageVersionTargetRegion -GalleryImageVersion <PSGalleryImageV
 ```
 
 ## DESCRIPTION
-Add a target region to a gallery image version config.
+Add a target region to a gallery image version config:  New-AzureRmGalleryImageVersionConfig | Add-AzureRmGalleryImageVersionRegion -Name $regionName -RegionalReplicaCount $regionalReplicaCount
 
 ## EXAMPLES
 
