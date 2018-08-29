@@ -24,40 +24,55 @@ Update a gallery.
 
 ### Example 1
 ```powershell
-PS C:\> Update-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName [-Description] $galleryDescription [-Location] $location
+PS C:\> Update-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName -Location $location -Description $galleryDescription
 ```
 
 Update a gallery.
 
 ## PARAMETERS
 
-### -AsJob
-Run cmdlet in the background
+### -ResourceGroupName
+The name of the resource group.
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
-Position: Named
+Required: True
+Position: 0
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -DefaultProfile
-The credentials, account, tenant, and subscription used for communication with Azure.
+### -GalleryName
+The name of the gallery.
 
 ```yaml
-Type: IAzureContextContainer
+Type: String
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases:
 
-Required: False
-Position: Named
+Required: True
+Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Location
+Resource location
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 2
+Default value: None
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -91,48 +106,33 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Location
-Resource location
+### -AsJob
+Run cmdlet in the background
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 2
+Required: False
+Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -GalleryName
-The name of the gallery.
+### -DefaultProfile
+The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: String
+Type: IAzureContextContainer
 Parameter Sets: (All)
-Aliases:
+Aliases: AzureRmContext, AzureCredential
 
-Required: True
-Position: 1
+Required: False
+Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ResourceGroupName
-The name of the resource group.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

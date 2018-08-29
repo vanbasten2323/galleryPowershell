@@ -13,8 +13,7 @@ Get or list galleries.
 ## SYNTAX
 
 ```
-Get-AzureRmGallery [[-ResourceGroupName] <String>] [[-GalleryName] <String>]
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzureRmGallery [[-ResourceGroupName] <String>] [[-GalleryName] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -27,22 +26,32 @@ Get or list galleries.
 PS C:\> Get-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName
 ```
 
+### Example 2
+```powershell
+PS C:\> Get-AzureRmGallery -ResourceGroupName $rgname
+```
+
+### Example 3
+```powershell
+PS C:\> Get-AzureRmGallery
+```
+
 Get the gallery.
 
 ## PARAMETERS
 
-### -DefaultProfile
-The credentials, account, tenant, and subscription used for communication with Azure.
+### -ResourceGroupName
+The name of the resource group.
 
 ```yaml
-Type: IAzureContextContainer
+Type: String
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases:
 
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -61,18 +70,18 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -ResourceGroupName
-The name of the resource group.
+### -DefaultProfile
+The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: String
+Type: IAzureContextContainer
 Parameter Sets: (All)
-Aliases:
+Aliases: AzureRmContext, AzureCredential
 
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
