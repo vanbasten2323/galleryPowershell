@@ -28,7 +28,7 @@
 ## High Level Scenarios
 
 - Describe how your feature is intended to be used by customers.
-
+  - Gallery
     - ` New cmdlets to create a gallery. `
       - New-AzureRmGallery
     - ` New cmdlets to update a gallery. `
@@ -37,6 +37,7 @@
       - Get-AzureRmGallery
     - ` New cmdlets to delete a gallery. `
       - Remove-AzureRmGallery
+  - Gallery Image
     - ` New cmdlets to create a gallery image. `
       - New-AzureRmGalleryImage
     - ` New cmdlets to update a gallery image. `
@@ -45,6 +46,7 @@
       - Get-AzureRmGalleryImage
     - ` New cmdlets to delete a gallery image. `
       - Remove-AzureRmGalleryImage
+  - Gallery Image Version
     - ` New cmdlets to create a gallery image version config. `
       - New-AzureRmGalleryImageVersionConfig
     - ` New cmdlets to add a target region to a gallery image version config. `
