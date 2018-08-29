@@ -113,11 +113,11 @@ Update-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galle
 ```
 ### Get a gallery image version
 ```
-
+Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -GalleryImageVersionName $version
 ```
 ### Delete a gallery image version
 ```
-
+Remove-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -GalleryImageVersionName $version
 ```
 
 ## Syntax changes
@@ -206,9 +206,11 @@ PS C:\> Update-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-Galler
 
 
 ``` powershell
+PS C:\> Get-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [[-GalleryImageVersionName] <String>] [[-Expand] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 ```### New Cmdlet [Remove-AzureRmGalleryImageVersion]()
 
 
 ``` powershell
+PS C:\> Remove-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-GalleryImageVersionName] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
