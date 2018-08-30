@@ -13,7 +13,7 @@ Delete a gallery.
 ## SYNTAX
 
 ```
-Remove-AzureRmGallery -ResourceGroupName <String> -GalleryName <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
