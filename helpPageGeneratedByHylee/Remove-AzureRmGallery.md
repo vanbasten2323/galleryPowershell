@@ -13,7 +13,7 @@ Delete a gallery.
 ## SYNTAX
 
 ```
-Remove-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,7 +23,7 @@ Delete a gallery.
 
 ### Example 1
 ```powershell
-PS C:\> Remove-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName
+PS C:\> Remove-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName
 ```
 
 Delete the given gallery.
@@ -45,13 +45,13 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryName
+### -Name
 The name of the gallery.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: GalleryName
 
 Required: True
 Position: 1

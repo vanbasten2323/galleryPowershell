@@ -13,7 +13,7 @@ Update a gallery.
 ## SYNTAX
 
 ```
-Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Update-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,7 +23,7 @@ Update a gallery.
 
 ### Example 1
 ```powershell
-PS C:\> Update-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName -Location $location -Description $galleryDescription
+PS C:\> Update-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName -Location $location -Description $galleryDescription
 ```
 
 Update a gallery.
@@ -45,13 +45,13 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryName
+### -Name
 The name of the gallery.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: GalleryName
 
 Required: True
 Position: 1

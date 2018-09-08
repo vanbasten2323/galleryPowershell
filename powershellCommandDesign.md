@@ -63,10 +63,10 @@
 
 ## Piping scenarios / how these cmdlets are used with existing cmdlets
   - Gallery
-    - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -GalleryName $galleryName | Remove-AzureRmGallery
+    - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -Name $galleryName | Remove-AzureRmGallery
     - Get-AzureRmGallery -ResourceGroupName $resourceGroupName | Remove-AzureRmGallery
     - Get-AzureRmGallery | Remove-AzureRmGallery
-    - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -GalleryName $galleryName | Update-AzureRmGallery  -Description $galleryDescription
+    - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -Name $galleryName | Update-AzureRmGallery  -Description $galleryDescription
 
   - Gallery Image
     - Get-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -GalleryImageName $galleryImageName | Remove-AzureRmGalleryImage
@@ -84,21 +84,21 @@
 ### Gallery
 #### Create a gallery
 ```
-New-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName -Location $location -Description $galleryDescription 
+New-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName -Location $location -Description $galleryDescription 
 ```
 #### Update a gallery
 ```
-Update-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName -Location $location -Description $galleryDescription
+Update-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName -Location $location -Description $galleryDescription
 ```
 #### Get a gallery
 ```
-Get-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName
+Get-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName
 Get-AzureRmGallery -ResourceGroupName $rgname
 Get-AzureRmGallery
 ```
 #### Delete a gallery
 ```
-Remove-AzureRmGallery -ResourceGroupName $rgname -GalleryName $galleryName
+Remove-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName
 ```
 
 ### Gallery Image
@@ -155,22 +155,22 @@ This should include PowerShell-help style syntax descriptions of all new and cha
 ### Gallery
 #### New Cmdlet [New-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGallery.md)
 ``` 
-PS C:\> New-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+PS C:\> New-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### New Cmdlet [Update-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Update-AzureRmGallery.md)
 ```
-PS C:\> Update-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] 
+PS C:\> Update-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
 
 #### New Cmdlet [Get-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Get-AzureRmGallery.md)
 ```
-PS C:\> Get-AzureRmGallery [[-ResourceGroupName] <String>] [[-GalleryName] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+PS C:\> Get-AzureRmGallery [[-ResourceGroupName] <String>] [[-Name] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 #### New Cmdlet [Remove-AzureRmGallery](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Remove-AzureRmGallery.md)
 ```
-PS C:\> Remove-AzureRmGallery [-ResourceGroupName] <String> [-GalleryName] <String> [-Force] [-AsJob]
+PS C:\> Remove-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Force] [-AsJob]
  [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
 
