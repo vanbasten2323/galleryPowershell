@@ -13,7 +13,7 @@ Get or list gallery images.
 ## SYNTAX
 
 ```
-Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,7 +23,7 @@ Get or list gallery images.
 
 ### Example 1
 ```powershell
-PS C:\> Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image
+PS C:\> Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -Name $image
 ```
 
 ### Example 2
@@ -65,13 +65,13 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryImageName
+### -Name
 The name of the gallery image.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: GalleryImageName
 
 Required: False
 Position: Named

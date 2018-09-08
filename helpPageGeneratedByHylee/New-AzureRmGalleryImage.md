@@ -13,7 +13,7 @@ Create a gallery image.
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Location] <String> [-Publisher] <String> [-Offer] <String> [-Sku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [-Description <String>] [-Eula <String>] [-PrivacyStatementUri <String>] [-ReleaseNoteUri <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Location] <String> [-Publisher] <String> [-Offer] <String> [-Sku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [-Description <String>] [-Eula <String>] [-PrivacyStatementUri <String>] [-ReleaseNoteUri <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,12 +23,12 @@ Create a gallery image.
 
 ### Example 1
 ```powershell
-PS C:\> New-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -GalleryImageName $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux" -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU -PurchasePlanName $purchasePlanName -PurchasePlanProduct $purchasePlanProduct -PurchasePlanPublisher $purchasePlanPublisher
+PS C:\> New-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux" -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU -PurchasePlanName $purchasePlanName -PurchasePlanProduct $purchasePlanProduct -PurchasePlanPublisher $purchasePlanPublisher
 ```
 
 ### Example 2
 ```powershell
-PS C:\> New-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -GalleryImageName $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux"
+PS C:\> New-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux"
 ```
 
 Create a gallery image.
@@ -65,13 +65,13 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryImageName
+### -Name
 The name of the gallery image.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases:
+Aliases: GalleryImageName
 
 Required: True
 Position: 2
