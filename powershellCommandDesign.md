@@ -198,7 +198,7 @@ PS C:\> Remove-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] 
 ### Gallery Image Version
 #### New Cmdlet [New-AzureRmGalleryImageVersionConfig](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGalleryImageVersionConfig.md)
 ```
-PS C:\> New-AzureRmGalleryImageVersionConfig [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegions <TargetRegion[]>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+PS C:\> New-AzureRmGalleryImageVersionConfig [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <TargetRegion[]>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### New Cmdlet [Add-AzureRmGalleryImageVersionTargetRegion](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Add-AzureRmGalleryImageVersionTargetRegion.md)
