@@ -77,7 +77,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceId
-The resource id for the gallery.
+The resource id for the gallery
 
 ```yaml
 Type: System.String
