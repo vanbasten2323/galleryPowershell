@@ -12,8 +12,19 @@ Delete a gallery.
 
 ## SYNTAX
 
+### DefaultParameter (Default)
 ```
 Remove-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ResourceIdParameter
+```
+Remove-AzureRmGallery -ResourceId <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ObjectParameter
+```
+Remove-AzureRmGallery -Gallery <PSGallery> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -57,6 +68,36 @@ Required: True
 Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -ResourceId
+The resource id for the gallery
+
+```yaml
+Type: System.String
+Parameter Sets: ResourceIdParameter
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Gallery
+Local gallery object
+
+```yaml
+Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
+Parameter Sets: ObjectParameter
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 

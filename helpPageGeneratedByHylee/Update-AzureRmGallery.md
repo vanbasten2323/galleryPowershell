@@ -12,8 +12,19 @@ Update a gallery.
 
 ## SYNTAX
 
+### DefaultParameter (Default)
 ```
 Update-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ResourceIdParameter
+```
+Update-AzureRmGallery -ResourceId <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ObjectParameter
+```
+Update-AzureRmGallery -Gallery <PSGallery> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -102,6 +113,36 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -ResourceId
+The resource id for the gallery
+
+```yaml
+Type: System.String
+Parameter Sets: ResourceIdParameter
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Gallery
+Local gallery object
+
+```yaml
+Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
+Parameter Sets: ObjectParameter
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 

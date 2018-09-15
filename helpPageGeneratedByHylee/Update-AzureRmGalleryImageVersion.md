@@ -12,8 +12,19 @@ Update a gallery image version.
 
 ## SYNTAX
 
+### DefaultParameter (Default)
 ```
 Update-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Name] <String> [-GalleryImageVersion] <PSGalleryImageVersion> [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ResourceIdParameter
+```
+Update-AzureRmGalleryImageVersion -ResourceId <String> [-GalleryImageVersion] <PSGalleryImageVersion> [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ObjectParameter
+```
+Update-AzureRmGalleryImageVersion -GalleryImageVersion <PSGalleryImageVersion> [-GalleryImageVersion] <PSGalleryImageVersion> [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -90,20 +101,36 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryImageVersion
-Specifies the local gallery image version object that you want to create.
+### -ResourceId
+The resource id for the gallery image version
 
 ```yaml
-Type: PSGalleryImageVersion
-Parameter Sets: (All)
+Type: System.String
+Parameter Sets: ResourceIdParameter
 Aliases:
 
 Required: True
-Position: 4
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -GalleryImageVersion
+Local gallery image version object
+
+```yaml
+Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImageVersion
+Parameter Sets: ObjectParameter
+Aliases:
+
+Required: True
+Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
+
 
 ### -AsJob
 Run cmdlet in the background
