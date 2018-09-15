@@ -12,8 +12,14 @@ Get or list gallery images.
 
 ## SYNTAX
 
+### DefaultParameter (Default)
 ```
 Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+### ResourceIdParameter
+```
+Get-AzureRmGalleryImage -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -74,6 +80,21 @@ Parameter Sets: (All)
 Aliases: GalleryImageName
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -ResourceId
+The resource id for the gallery image.
+
+```yaml
+Type: System.String
+Parameter Sets: ResourceIdParameter
+Aliases:
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
