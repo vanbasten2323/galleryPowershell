@@ -46,7 +46,7 @@ The name of the resource group.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: DefaultParameter
 Aliases:
 
 Required: True
@@ -61,7 +61,7 @@ The name of the gallery.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: DefaultParameter
 Aliases: GalleryName
 
 Required: True
