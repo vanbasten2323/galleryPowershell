@@ -14,7 +14,7 @@ Get or list gallery image versions.
 
 ### DefaultParameter (Default)
 ```
-Get-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [[-Name] <String>] [[-Expand] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-ImageDefinitionName] <String> [[-Name] <String>] [[-Expand] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ResourceIdParameter
@@ -29,12 +29,12 @@ Get or list gallery image versions.
 
 ### Example 1
 ```powershell
-PS C:\> Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -Name $version
+PS C:\> Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $image -Name $version
 ```
 
 ### Example 2
 ```powershell
-PS C:\> Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image
+PS C:\> Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $image
 ```
 
 Get the gallery image version.
@@ -71,13 +71,13 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryImageName
-The name of the gallery image.
+### -ImageDefinitionName
+The name of the gallery image definition.
 
 ```yaml
 Type: String
 Parameter Sets: DefaultParameter
-Aliases:
+Aliases: GalleryImageName
 
 Required: True
 Position: 2
