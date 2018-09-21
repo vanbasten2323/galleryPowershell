@@ -1,14 +1,14 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
 Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermgalleryimage
+online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermgalleryimagedefinition
 schema: 2.0.0
 ---
 
 # Update-AzureRmGalleryImage
 
 ## SYNOPSIS
-Update a gallery image.
+Update a gallery image definition.
 
 ## SYNTAX
 
@@ -28,7 +28,7 @@ Update-AzureRmGalleryImage -GalleryImage <PSGalleryImage> [-Description <String>
 ```
 
 ## DESCRIPTION
-Update a gallery image.
+Update a gallery image definition.
 
 ## EXAMPLES
 
@@ -37,7 +37,7 @@ Update a gallery image.
 Update-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU
 ```
 
-Update a gallery image.
+Update a gallery image definition.
 
 ## PARAMETERS
 
@@ -72,7 +72,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-The name of the gallery image.
+The name of the gallery image definition.
 
 ```yaml
 Type: String
@@ -87,7 +87,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceId
-The resource id for the gallery image
+The resource id for the gallery image definition
 
 ```yaml
 Type: System.String
@@ -102,7 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### -GalleryImage
-Local gallery image object
+Local gallery image definition object
 
 ```yaml
 Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImage 
@@ -147,7 +147,7 @@ Accept wildcard characters: False
 ```
 
 ### -Eula
-"The Eula agreement for the gallery image.
+"The Eula agreement for the gallery image definition.
 
 ```yaml
 Type: String
@@ -207,7 +207,7 @@ Accept wildcard characters: False
 ```
 
 ### -EndOfLifeDate
-"The end of life of this gallery image.
+"The end of life of this gallery image definition.
 
 ```yaml
 Type: DateTime

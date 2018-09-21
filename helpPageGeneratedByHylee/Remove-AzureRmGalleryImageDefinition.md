@@ -1,43 +1,43 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
 Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermgalleryimage
+online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermgalleryimagedefinition
 schema: 2.0.0
 ---
 
-# Remove-AzureRmGalleryImage
+# Remove-AzureRmGalleryImageDefinition
 
 ## SYNOPSIS
-Delete a gallery image.
+Delete a gallery image definition.
 
 ## SYNTAX
 
 ### DefaultParameter (Default)
 ```
-Remove-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzureRmGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ResourceIdParameter
 ```
-Remove-AzureRmGalleryImage -ResourceId <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzureRmGalleryImageDefinition -ResourceId <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ObjectParameter
 ```
-Remove-AzureRmGalleryImage -GalleryImage <PSGalleryImage> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzureRmGalleryImageDefinition -GalleryImageDefinition <PSGalleryImage> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Delete a gallery image.
+Delete a gallery image definition.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Remove-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -Name $image
+PS C:\> Remove-AzureRmGalleryImageDefinition -ResourceGroupName $rgname -GalleryName $gallery -Name $image
 ```
 
-Delete the given gallery image.
+Delete the given gallery image definition.
 
 ## PARAMETERS
 
@@ -72,7 +72,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-The name of the gallery image.
+The name of the gallery image definition.
 
 ```yaml
 Type: String
@@ -87,7 +87,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceId
-The resource id for the gallery image
+The resource id for the gallery image definition
 
 ```yaml
 Type: System.String
@@ -101,8 +101,8 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryImage
-Local gallery image object
+### -GalleryImageDefinition
+Local gallery image definition object
 
 ```yaml
 Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImage 
