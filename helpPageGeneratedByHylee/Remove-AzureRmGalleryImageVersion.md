@@ -14,7 +14,7 @@ Delete a gallery image version.
 
 ### DefaultParameter (Default)
 ```
-Remove-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-ImageDefinitionName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ResourceIdParameter
@@ -34,7 +34,7 @@ Delete a gallery image version.
 
 ### Example 1
 ```powershell
-PS C:\> Remove-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -Name $version
+PS C:\> Remove-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $image -Name $version
 ```
 
 Delete the given gallery image version.
@@ -71,13 +71,13 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -GalleryImageName
-The name of the gallery image.
+### -ImageDefinitionName
+The name of the gallery image definition.
 
 ```yaml
 Type: String
 Parameter Sets: DefaultParameter
-Aliases:
+Aliases: GalleryImageName
 
 Required: True
 Position: 2
