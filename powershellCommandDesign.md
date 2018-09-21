@@ -37,15 +37,15 @@
       - Get-AzureRmGallery
     - ` New cmdlets to delete a gallery. `
       - Remove-AzureRmGallery
-  - Gallery Image
-    - ` New cmdlets to create a gallery image. `
-      - New-AzureRmGalleryImage
-    - ` New cmdlets to update a gallery image. `
-      - Update-AzureRmGalleryImage
-    - ` New cmdlets to get a gallery image or list gallery images. `
-      - Get-AzureRmGalleryImage
-    - ` New cmdlets to delete a gallery image. `
-      - Remove-AzureRmGalleryImage
+  - Gallery Image Definition
+    - ` New cmdlets to create a gallery image definition. `
+      - New-AzureRmGalleryImageDefinition
+    - ` New cmdlets to update a gallery image definition. `
+      - Update-AzureRmGalleryImageDefinition
+    - ` New cmdlets to get a gallery image definition or list gallery image definitions. `
+      - Get-AzureRmGalleryImageDefinition
+    - ` New cmdlets to delete a gallery image definition. `
+      - Remove-AzureRmGalleryImageDefinition
   - Gallery Image Version
     - ` New cmdlets to create a gallery image version. `
       - New-AzureRmGalleryImageVersion
@@ -65,14 +65,14 @@
     - Get-AzureRmGallery -ResourceGroupName $resourceGroupName -Name $galleryName | Update-AzureRmGallery -Description $galleryDescription
 
   - Gallery Image
-    - Get-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName | Remove-AzureRmGalleryImage
-    - Get-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName | Remove-AzureRmGalleryImage
-    - Get-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName | Update-AzureRmGalleryImage -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState Generalized -OsType Linux -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU -PurchasePlanName $purchasePlanName -PurchasePlanProduct $purchasePlanProduct -PurchasePlanPublisher $purchasePlanPublisher
+    - Get-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageDefinitionName | Remove-AzureRmGalleryImageDefinition
+    - Get-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName | Remove-AzureRmGalleryImageDefinition
+    - Get-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageDefinitionName | Update-AzureRmGalleryImageDefinition -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState Generalized -OsType Linux -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU -PurchasePlanName $purchasePlanName -PurchasePlanProduct $purchasePlanProduct -PurchasePlanPublisher $purchasePlanPublisher
     
   - Gallery Image Version    
-    - Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -Name $version | Remove-AzureRmGalleryImageVersion
-    - Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image | Remove-AzureRmGalleryImageVersion
-    - Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -Name $version | Update-AzureRmGalleryImageVersion -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
+    - Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $image -Name $version | Remove-AzureRmGalleryImageVersion
+    - Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $image | Remove-AzureRmGalleryImageVersion
+    - Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $image -Name $version | Update-AzureRmGalleryImageVersion -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
    
 
 ## Sample of end-to-end usage
@@ -96,23 +96,23 @@ Get-AzureRmGallery
 Remove-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName
 ```
 
-### Gallery Image
-#### Create a gallery image
+### Gallery Image Definition
+#### Create a gallery image definition
 ```
-New-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux" -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU -PurchasePlanName $purchasePlanName -PurchasePlanProduct $purchasePlanProduct -PurchasePlanPublisher $purchasePlanPublisher
+New-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageDefinitionName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux" -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU -PurchasePlanName $purchasePlanName -PurchasePlanProduct $purchasePlanProduct -PurchasePlanPublisher $purchasePlanPublisher
 ```
-#### Update a gallery image
+#### Update a gallery image definition
 ```
-Update-AzureRmGalleryImage -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU
+Update-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageDefinitionName -Description $description -Eula $eula -PrivacyStatementUri $privacyStatementUri -ReleaseNoteUri $releaseNoteUri -DisallowedDiskType $disallowedDiskTypes -EndOfLifeDate $endOfLifeDate -MinimumMemory $minMemory -MaximumMemory $maxMemory -MinimumVCPU $minVCPU -MaximumVCPU $maxVCPU
 ```
-#### Get a gallery image
+#### Get a gallery image definition
 ```
-Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -Name $image
-Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery
+Get-AzureRmGalleryImageDefinition -ResourceGroupName $rgname -GalleryName $gallery -Name $galleryImageDefinitionName
+Get-AzureRmGalleryImageDefinition -ResourceGroupName $rgname -GalleryName $gallery
 ```
-#### Delete a gallery image
+#### Delete a gallery image definition
 ```
-Remove-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -Name $image
+Remove-AzureRmGalleryImageDefinition -ResourceGroupName $rgname -GalleryName $gallery -Name $galleryImageDefinitionName
 ```
 
 ### Gallery Image Version
@@ -122,7 +122,7 @@ $region1 = @{Name='West US';ReplicaCount=1}
 $region2 = @{Name='East US';ReplicaCount=2}
 $region3 = @{Name='Central US'}
 $targetRegions = @($region1,$region2,$region3)
-New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageName $imageName -Name $versionName -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -ImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
 ```
 #### Update a gallery image version
 ```
@@ -130,16 +130,16 @@ $region1 = @{Name='West US';ReplicaCount=1}
 $region2 = @{Name='East US';ReplicaCount=2}
 $region3 = @{Name='Central US'}
 $targetRegions = @($region1,$region2,$region3)
-Update-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageName $imageName -Name $versionName -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
+Update-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -ImageDefinitionName $imageDefinitionName -Name $versionName -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
 ```
 #### Get a gallery image version
 ```
-Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -Name $version
-Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image
+Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $imageDefinitionName -Name $version
+Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $imageDefinitionName
 ```
 #### Delete a gallery image version
 ```
-Remove-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageName $image -Name $version
+Remove-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -ImageDefinitionName $imageDefinitionName -Name $version
 ```
 
 
@@ -169,44 +169,44 @@ PS C:\> Remove-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-F
  [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
 
-### Gallery Image
-#### New Cmdlet [New-AzureRmGalleryImage](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGalleryImage.md)
+### Gallery Image Definition
+#### New Cmdlet [New-AzureRmGalleryImageDefinition](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGalleryImageDefinition.md)
 ```
-PS C:\> New-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Location] <String> [-Publisher] <String> [-Offer] <String> [-Sku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [-Description <String>] [-Eula <String>] [-PrivacyStatementUri <String>] [-ReleaseNoteUri <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-#### New Cmdlet [Update-AzureRmGalleryImage](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Update-AzureRmGalleryImage.md)
-```
-PS C:\> Update-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Description <String>] [-Eula <String>] [-PrivacyStatementUri <String>] [-ReleaseNoteUri <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+PS C:\> New-AzureRmGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Location] <String> [-Publisher] <String> [-Offer] <String> [-Sku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [-Description <String>] [-Eula <String>] [-PrivacyStatementUri <String>] [-ReleaseNoteUri <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-#### New Cmdlet [Get-AzureRmGalleryImage](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Get-AzureRmGalleryImage.md)
+#### New Cmdlet [Update-AzureRmGalleryImageDefinition](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Update-AzureRmGalleryImageDefinition.md)
 ```
-PS C:\> Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+PS C:\> Update-AzureRmGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Description <String>] [-Eula <String>] [-PrivacyStatementUri <String>] [-ReleaseNoteUri <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-#### New Cmdlet [Remove-AzureRmGalleryImage](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Remove-AzureRmGalleryImage.md)
+#### New Cmdlet [Get-AzureRmGalleryImageDefinition](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Get-AzureRmGalleryImageDefinition.md)
 ```
-PS C:\> Remove-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+PS C:\> Get-AzureRmGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+#### New Cmdlet [Remove-AzureRmGalleryImageDefinition](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Remove-AzureRmGalleryImageDefinition.md)
+```
+PS C:\> Remove-AzureRmGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Gallery Image Version
 #### New Cmdlet [New-AzureRmGalleryImageVersion](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGalleryImageVersion.md)
 ```
-PS C:\> New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Name] <String> [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+PS C:\> New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-ImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### New Cmdlet [Update-AzureRmGalleryImageVersion](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Update-AzureRmGalleryImageVersion.md)
 ```
-PS C:\> Update-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Name] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+PS C:\> Update-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-ImageDefinitionName] <String> [-Name] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### New Cmdlet [Get-AzureRmGalleryImageVersion](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Get-AzureRmGalleryImageVersion.md)
 ```
-PS C:\> Get-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [[-Name] <String>] [[-Expand] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+PS C:\> Get-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-ImageDefinitionName] <String> [[-Name] <String>] [[-Expand] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 #### New Cmdlet [Remove-AzureRmGalleryImageVersion](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/Remove-AzureRmGalleryImageVersion.md)
 ```
-PS C:\> Remove-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+PS C:\> Remove-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-ImageDefinitionName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
