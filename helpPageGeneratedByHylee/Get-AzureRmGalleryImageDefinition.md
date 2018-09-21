@@ -1,43 +1,43 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
 Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermgalleryimage
+online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermgalleryimagedefinition
 schema: 2.0.0
 ---
 
-# Get-AzureRmGalleryImage
+# Get-AzureRmGalleryImageDefinition
 
 ## SYNOPSIS
-Get or list gallery images.
+Get or list gallery image definitions.
 
 ## SYNTAX
 
 ### DefaultParameter (Default)
 ```
-Get-AzureRmGalleryImage [-ResourceGroupName] <String> [-GalleryName] <String> [-Name <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzureRmGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ResourceIdParameter
 ```
-Get-AzureRmGalleryImage -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzureRmGalleryImageDefinition -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Get or list gallery images.
+Get or list gallery image definitions.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery -Name $image
+PS C:\> Get-AzureRmGalleryImageDefinition -ResourceGroupName $rgname -GalleryName $gallery -Name $image
 ```
 
 ### Example 2
 ```powershell
-PS C:\> Get-AzureRmGalleryImage -ResourceGroupName $rgname -GalleryName $gallery
+PS C:\> Get-AzureRmGalleryImageDefinition -ResourceGroupName $rgname -GalleryName $gallery
 ```
 
-Get the gallery image.
+Get the gallery image definition.
 
 ## PARAMETERS
 
@@ -72,12 +72,12 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-The name of the gallery image.
+The name of the gallery image definition
 
 ```yaml
 Type: String
 Parameter Sets: DefaultParameter
-Aliases: GalleryImageName
+Aliases: GalleryImageDefinitionName
 
 Required: False
 Position: Named
@@ -87,7 +87,7 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceId
-The resource id for the gallery image
+The resource id for the gallery image definition
 
 ```yaml
 Type: System.String
