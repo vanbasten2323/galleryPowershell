@@ -13,7 +13,7 @@ Create a gallery image version.
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,11 +23,11 @@ Create a gallery image version.
 
 ### Example 1
 ```powershell
-PS C:\> $region1 = @{Name='West US';ReplicaCount=1}
-PS C:\> $region2 = @{Name='East US';ReplicaCount=2}
-PS C:\> $region3 = @{Name='Central US'}
-PS C:\> $targetRegions = @($region1,$region2,$region3)
-PS C:\> New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageName -Name $versionName -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
+$region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS}
+$region2 = @{Name='East US';ReplicaCount=2;StorageAccountType=Standard_ZRS}
+$region3 = @{Name='Central US'}
+$targetRegions = @($region1,$region2,$region3)
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -StorageAccountType Standard_LRS -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
 ```
 
 Create a gallery image version.
@@ -125,12 +125,28 @@ Accept wildcard characters: False
 ```
 
 ### -ReplicaCount
-This is the number of source blob copies in a region.
+This is the number of source blob copies in the region.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -StorageAccountType
+This is the storage account type to be used in the region.
+
+```yaml
+Type: StorageAccountType
+Parameter Sets: (All)
+Aliases:
+Accepted values: Standard_LRS, Standard_ZRS
 
 Required: False
 Position: Named
@@ -173,7 +189,7 @@ Accept wildcard characters: False
 The regions where the artifact is going to be published.
 
 ```yaml
-Type: TargetRegion[]
+Type: PSTargetRegionInfo[]
 Parameter Sets: (All)
 Aliases:
 
