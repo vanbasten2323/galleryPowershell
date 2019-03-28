@@ -14,7 +14,7 @@
 
     - `{ Xiongfei Wei: xiowei@microsoft.com, vanbasten2323 }`
     - `{ Kshitij Agrawal: kagarwal@microsoft.com, KshitijAgrawal }`
-    - `{ Jerry Chan: jerch@microsoft.com }`
+    - `{ Jerry Chan: jerch@microsoft.com,  jerryc3 }`
 
 - PM contact (email + github alias) 
 
@@ -29,7 +29,7 @@
 ## High Level Scenarios
 
 - Describe how your feature is intended to be used by customers.
-  - Customers should be able to specify the storage account type when they create a gallery image version.
+  - Customers should be able to specify the storage account type they want to use when creating a gallery image version.
 
 
 ## Sample of end-to-end usage
