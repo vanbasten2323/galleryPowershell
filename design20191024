@@ -1,0 +1,83 @@
+## Service Release Details
+
+- Is this an Embargoed Preview, A Public Preview, or a General Release?
+
+    - `{ General Release }`
+
+- What is the expected service release date?
+
+    - `{ Nov 04, 2019 }`
+
+## Contact Information
+
+- Main developer contacts (emails + github aliases)
+
+    - `{ Xiongfei Wei: xiowei@microsoft.com, vanbasten2323 }`
+    - `{ Kshitij Agrawal: kagarwal@microsoft.com, KshitijAgrawal }`
+
+- PM contact (email + github alias) 
+
+    - `{ Akshaya.Joshi@microsoft.com }`
+
+- Other people who should attend a design review (email)
+
+    - `{ Hyonho Lee: Hyonho.Lee@microsoft.com, hylee }`
+    - `{ Ferry Susanto: ferrys@microsoft.com, ferrysusanto }`
+
+## High Level Scenarios
+
+- Describe how your feature is intended to be used by customers.
+
+    - `{ Customers should be able to use snapshots/disks as input to create a gallery image version. } `
+    - `{ Customers should be able to use VM as input to create a gallery image version. So we need to rename the parameter "SourceImageId" to "SourceId" } `
+    - `{ Customers should be able to specify HyperVGeneration to create a image definition. } `
+
+
+## Sample of end-to-end usage
+### Gallery Image Version
+#### Create a gallery image version
+1. Change1: add "-OSDiskImage" and "-DataDiskImages" as optional parameters to New-AzureRmGalleryImageVersion.
+```
+$osDiskImage = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyOsSnapshot'}
+$dataDiskImage1 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot1';Lun=1}
+$dataDiskImage2 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot2';Lun=2}
+$dataDiskImages = @($dataDiskImage1,$dataDiskImage2)
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -OSDiskImage $osDiskImage -DataDiskImages $dataDiskImages
+```
+2. Change2: Add new optional parameter "-SourceId" to New-AzureRmGalleryImageVersion and make the existing parameter "-SourceImageId" optional.
+```
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceId $sourceId
+```
+3. Change3: Add "-HyperVGeneration" parameter to New-AzureRmGalleryImageDefinition.
+```
+New-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux" -HyperVGeneration "V2"
+```
+
+## Syntax changes
+
+This should include PowerShell-help style syntax descriptions of all new and changed cmdlets, similar to the syntax portion of PowerShell help (or markdown help), for example:
+
+
+### Changed cmdlet
+
+### Gallery Image Version
+#### Changed cmdlet [New-AzureRmGalleryImageVersion](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGalleryImageVersion.md)
+1. Change1: add "-OSDiskImage" and "-DataDiskImages" as optional parameters to New-AzureRmGalleryImageVersion.
+```
+PS C:\> New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-OSDiskImage PSOSDiskInfo] [-DataDiskImages <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+2. Change2: Add new optional parameter "-SourceId" to New-AzureRmGalleryImageVersion and make the existing parameter "-SourceImageId" optional.
+```
+PS C:\> New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+3. Change3: Add "-HyperVGeneration" parameter to [New-AzureRmGalleryImageDefinition](https://github.com/vanbasten2323/galleryPowershell/blob/master/helpPageGeneratedByHylee/New-AzureRmGalleryImageDefinition.md).
+```
+PS C:\> New-AzureRmGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Location] <String> [-Publisher] <String> [-Offer] <String> [-Sku] <String> [-OsState] {Generalized | Specialized} [-OsType] {Windows | Linux} [-Description <String>] [-Eula <String>] [-PrivacyStatementUri <String>] [-ReleaseNoteUri <String>] [-DisallowedDiskType <String[]>] [-EndOfLifeDate <DateTime>] [-MinimumMemory <Int32>] [-MaximumMemory <Int32>] [-MinimumVCPU <Int32>] [-MaximumVCPU <Int32>] [-VCPU <ResourceRange>] [-PurchasePlanName <String>] [-PurchasePlanProduct <String>] [-PurchasePlanPublisher <String>] [-HyperVGeneration {V1|V2}] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>] [-Tag <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+
+## Guidelines
+
+- Do your cmdlets comply with the design guidelines outlined in the [PowerShell Design Guidelines document](https://github.com/Azure/azure-powershell/tree/master/documentation/development-docs/design-guidelines)?
+
+    - `{ Yes }`
