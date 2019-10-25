@@ -13,7 +13,7 @@ Create a gallery image version.
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-OSDiskImage PSOSDiskInfo] [-DataDiskImages <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-SourceImageId <String>] [-OSDiskImage PSOSDiskInfo] [-DataDiskImages <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -133,6 +133,21 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -SourceImageId
+The managed artifact id of the source. To be deprecated.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
 ### -OSDiskImage
 The OS disk information of the source.
 
@@ -149,7 +164,7 @@ Accept wildcard characters: False
 ```
 
 ### -DataDiskImages
-The managed artifact id of the source.
+The data disk information of the source.
 
 ```yaml
 Type: PSDataDiskInfo[]

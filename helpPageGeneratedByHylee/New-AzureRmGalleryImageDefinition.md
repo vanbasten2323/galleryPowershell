@@ -28,7 +28,7 @@ PS C:\> New-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName 
 
 ### Example 2
 ```powershell
-PS C:\> New-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux"
+PS C:\> New-AzureRmGalleryImageDefinition -ResourceGroupName $resourceGroupName -GalleryName $galleryName -Name $galleryImageName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -OsState "Generalized" -OsType "Linux" -HyperVGeneration "V2"
 ```
 
 Create a gallery image definition.
