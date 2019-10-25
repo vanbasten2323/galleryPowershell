@@ -13,7 +13,7 @@ Create a gallery image version.
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceImageId] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-OSDiskImage PSOSDiskInfo] [-DataDiskImages <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -27,7 +27,16 @@ $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS}
 $region2 = @{Name='East US';ReplicaCount=2;StorageAccountType=Standard_ZRS}
 $region3 = @{Name='Central US'}
 $targetRegions = @($region1,$region2,$region3)
-New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceImageId $sourceImageId -ReplicaCount 2 -StorageAccountType Standard_LRS -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceId $SourceId -ReplicaCount 2 -StorageAccountType Standard_LRS -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
+```
+
+### Example 2
+```powershell
+$osDiskImage = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyOsSnapshot'}
+$dataDiskImage1 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot1';Lun=1}
+$dataDiskImage2 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot2';Lun=2}
+$dataDiskImages = @($dataDiskImage1,$dataDiskImage2)
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -OSDiskImage $osDiskImage -DataDiskImages $dataDiskImages
 ```
 
 Create a gallery image version.
@@ -109,7 +118,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -SourceImageId
+### -SourceId
 The managed artifact id of the source.
 
 ```yaml
@@ -117,7 +126,37 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -OSDiskImage
+The OS disk information of the source.
+
+```yaml
+Type: PSOSDiskInfo
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -DataDiskImages
+The managed artifact id of the source.
+
+```yaml
+Type: PSDataDiskInfo[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
