@@ -13,7 +13,7 @@ Create a gallery image version.
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-SourceImageId <String>] [-OSDiskImage PSOSDiskInfo] [-DataDiskImages <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-SourceImageId <String>] [-OSDiskImage PSOSDiskInfo] [-DataDiskImage <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -35,8 +35,8 @@ New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryN
 $osDiskImage = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyOsSnapshot'}
 $dataDiskImage1 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot1';Lun=1}
 $dataDiskImage2 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot2';Lun=2}
-$dataDiskImages = @($dataDiskImage1,$dataDiskImage2)
-New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -OSDiskImage $osDiskImage -DataDiskImages $dataDiskImages
+$dataDiskImage = @($dataDiskImage1,$dataDiskImage2)
+New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -OSDiskImage $osDiskImage -DataDiskImage $dataDiskImage
 ```
 
 Create a gallery image version.
@@ -163,7 +163,7 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -DataDiskImages
+### -DataDiskImage
 The data disk information of the source.
 
 ```yaml
