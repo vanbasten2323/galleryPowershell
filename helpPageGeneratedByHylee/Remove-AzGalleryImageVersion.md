@@ -1,46 +1,42 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
-Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermgalleryimageversion
+Module Name: Az.Compute
+online version: https://docs.microsoft.com/en-us/powershell/module/Az.compute/remove-Azgalleryimageversion
 schema: 2.0.0
 ---
 
-# Update-AzureRmGalleryImageVersion
+# Remove-AzGalleryImageVersion
 
 ## SYNOPSIS
-Update a gallery image version.
+Delete a gallery image version.
 
 ## SYNTAX
 
 ### DefaultParameter (Default)
 ```
-Update-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
+
 ### ResourceIdParameter
 ```
-Update-AzureRmGalleryImageVersion -ResourceId <String> <String> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzGalleryImageVersion -ResourceId <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ObjectParameter
 ```
-Update-AzureRmGalleryImageVersion -GalleryImageVersion <PSGalleryImageVersion> [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzGalleryImageVersion -GalleryImageVersion <PSGalleryImageVersion> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Update a gallery image version.
+Delete a gallery image version.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> $region1 = @{Name='West US';ReplicaCount=1}
-PS C:\> $region2 = @{Name='East US';ReplicaCount=2}
-PS C:\> $region3 = @{Name='Central US'}
-PS C:\> $targetRegions = @($region1,$region2,$region3)
-PS C:\> Update-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageName -Name $versionName -ReplicaCount 2 -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
-```
+PS C:\> Remove-AzGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageDefinitionName $imageName -Name $versionName
 
-Update a gallery image version.
+Delete the given gallery image version.
 
 ## PARAMETERS
 
@@ -90,7 +86,7 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-The name of the gallery image version
+The name of the gallery image version.
 
 ```yaml
 Type: String
@@ -99,66 +95,6 @@ Aliases: GalleryImageVersionName
 
 Required: True
 Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ReplicaCount
-This is the number of source blob copies in a region.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PublishingProfileExcludeFromLatest
-The flag means that if it is set to true, people deploying VMs with 'latest' as version will not use this version.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PublishingProfileEndOfLifeDate
-The end of life date of the gallery image version.
-
-```yaml
-Type: DateTime
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -TargetRegion
-The regions where the artifact is going to be published.
-
-```yaml
-Type: TargetRegion[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -215,7 +151,22 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases: AzContext, AzureCredential
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Force
+Forces the command to run without asking for user confirmation.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -261,11 +212,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.String
-Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImageVersion
 
 ## OUTPUTS
 
-### Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImageVersion
+### Microsoft.Azure.Commands.Compute.Automation.Models.PSOperationStatusResponse
 
 ## NOTES
 

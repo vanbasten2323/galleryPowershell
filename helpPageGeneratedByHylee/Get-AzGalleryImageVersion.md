@@ -1,11 +1,11 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
-Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermgalleryimageversion
+Module Name: Az.Compute
+online version: https://docs.microsoft.com/en-us/powershell/module/Az.compute/get-Azgalleryimageversion
 schema: 2.0.0
 ---
 
-# Get-AzureRmGalleryImageVersion
+# Get-AzGalleryImageVersion
 
 ## SYNOPSIS
 Get or list gallery image versions.
@@ -14,12 +14,12 @@ Get or list gallery image versions.
 
 ### DefaultParameter (Default)
 ```
-Get-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [[-Name] <String>] [[-Expand] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [[-Name] <String>] [[-Expand] <String>] [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ### ResourceIdParameter
 ```
-Get-AzureRmGalleryImageVersion -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzGalleryImageVersion -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -29,12 +29,12 @@ Get or list gallery image versions.
 
 ### Example 1
 ```powershell
-PS C:\> Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageDefinitionName $imageName -Name $versionName
+PS C:\> Get-AzGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageDefinitionName $imageName -Name $versionName
 ```
 
 ### Example 2
 ```powershell
-PS C:\> Get-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageDefinitionName $imageName
+PS C:\> Get-AzGalleryImageVersion -ResourceGroupName $rgname -GalleryName $gallery -GalleryImageDefinitionName $imageName
 ```
 
 Get the gallery image version.
@@ -122,7 +122,7 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases: AzContext, AzureCredential
 
 Required: False
 Position: Named

@@ -1,11 +1,11 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
-Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/new-azurermgalleryimageversion
+Module Name: Az.Compute
+online version: https://docs.microsoft.com/en-us/powershell/module/Az.compute/new-Azgalleryimageversion
 schema: 2.0.0
 ---
 
-# New-AzureRmGalleryImageVersion
+# New-AzGalleryImageVersion
 
 ## SYNOPSIS
 Create a gallery image version.
@@ -13,7 +13,7 @@ Create a gallery image version.
 ## SYNTAX
 
 ```
-New-AzureRmGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-SourceImageId <String>] [-OSDiskImage PSOSDiskInfo] [-DataDiskImage <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzGalleryImageVersion [-ResourceGroupName] <String> [-GalleryName] <String> [-GalleryImageDefinitionName] <String> [-Name] <String> [-Location] <String> [-SourceId <String>] [-SourceImageId <String>] [-OSDiskImage PSOSDiskInfo] [-DataDiskImage <PSDataDiskInfo[]>] [-Tag <Hashtable>] [-ReplicaCount <Int32>] [-StorageAccountType {Standard_LRS | Standard_ZRS}] [-PublishingProfileExcludeFromLatest] [-PublishingProfileEndOfLifeDate <DateTime>] [-TargetRegion <PSTargetRegionInfo[]>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -27,7 +27,7 @@ $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS}
 $region2 = @{Name='East US';ReplicaCount=2;StorageAccountType=Standard_ZRS}
 $region3 = @{Name='Central US'}
 $targetRegions = @($region1,$region2,$region3)
-New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceId $SourceId -ReplicaCount 2 -StorageAccountType Standard_LRS -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
+New-AzGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceId $SourceId -ReplicaCount 2 -StorageAccountType Standard_LRS -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
 ```
 
 ### Example 2
@@ -36,7 +36,7 @@ $osDiskImage = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76d
 $dataDiskImage1 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot1';Lun=1}
 $dataDiskImage2 = @{Id='https://bogus:122/subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/Mock_CrpRgName/providers/Microsoft.Compute/snapshots/dummyDataDiskSnapshot2';Lun=2}
 $dataDiskImage = @($dataDiskImage1,$dataDiskImage2)
-New-AzureRmGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -OSDiskImage $osDiskImage -DataDiskImage $dataDiskImage
+New-AzGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -OSDiskImage $osDiskImage -DataDiskImage $dataDiskImage
 ```
 
 Create a gallery image version.
@@ -275,7 +275,7 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases: AzContext, AzureCredential
 
 Required: False
 Position: Named

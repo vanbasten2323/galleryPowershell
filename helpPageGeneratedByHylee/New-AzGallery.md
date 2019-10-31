@@ -1,43 +1,32 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
-Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermgallery
+Module Name: Az.Compute
+online version: https://docs.microsoft.com/en-us/powershell/module/Az.compute/new-Azgallery
 schema: 2.0.0
 ---
 
-# Remove-AzureRmGallery
+# New-AzGallery
 
 ## SYNOPSIS
-Delete a gallery.
+Create a gallery.
 
 ## SYNTAX
 
-### DefaultParameter (Default)
 ```
-Remove-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### ResourceIdParameter
-```
-Remove-AzureRmGallery -ResourceId <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### ObjectParameter
-```
-Remove-AzureRmGallery -Gallery <PSGallery> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzGallery [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Delete a gallery.
+Create a gallery.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Remove-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName
+PS C:\> New-AzGallery -ResourceGroupName $rgname -Name $galleryName -Location $location -Description $galleryDescription 
 ```
 
-Delete the given gallery.
+Create a gallery.
 
 ## PARAMETERS
 
@@ -46,7 +35,7 @@ The name of the resource group.
 
 ```yaml
 Type: String
-Parameter Sets: DefaultParameter
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -61,7 +50,7 @@ The name of the gallery.
 
 ```yaml
 Type: String
-Parameter Sets: DefaultParameter
+Parameter Sets: (All)
 Aliases: GalleryName
 
 Required: True
@@ -71,33 +60,48 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -ResourceId
-The resource id for the gallery
+### -Location
+Resource location
 
 ```yaml
-Type: System.String
-Parameter Sets: ResourceIdParameter
+Type: String
+Parameter Sets: (All)
 Aliases:
 
 Required: True
+Position: 2
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Description
+The description of this gallery resource.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Gallery
-Local gallery object
+### -Tag
+Resource tags
 
 ```yaml
-Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
-Parameter Sets: ObjectParameter
+Type: Hashtable
+Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -122,22 +126,7 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Force
-Forces the command to run without asking for user confirmation.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
+Aliases: AzContext, AzureCredential
 
 Required: False
 Position: Named
@@ -183,10 +172,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.String
+Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
 
 ## OUTPUTS
 
-### Microsoft.Azure.Commands.Compute.Automation.Models.PSOperationStatusResponse
+### Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
 
 ## NOTES
 

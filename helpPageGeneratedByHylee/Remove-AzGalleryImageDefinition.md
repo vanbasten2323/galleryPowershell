@@ -1,43 +1,43 @@
 ---
 external help file: Microsoft.Azure.Commands.Compute.dll-Help.xml
-Module Name: AzureRM.Compute
-online version: https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermgallery
+Module Name: Az.Compute
+online version: https://docs.microsoft.com/en-us/powershell/module/Az.compute/remove-Azgalleryimagedefinition
 schema: 2.0.0
 ---
 
-# Update-AzureRmGallery
+# Remove-AzGalleryImageDefinition
 
 ## SYNOPSIS
-Update a gallery.
+Delete a gallery image definition.
 
 ## SYNTAX
 
 ### DefaultParameter (Default)
 ```
-Update-AzureRmGallery [-ResourceGroupName] <String> [-Name] <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzGalleryImageDefinition [-ResourceGroupName] <String> [-GalleryName] <String> [-Name] <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ResourceIdParameter
 ```
-Update-AzureRmGallery -ResourceId <String> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzGalleryImageDefinition -ResourceId <String> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ObjectParameter
 ```
-Update-AzureRmGallery -Gallery <PSGallery> [[-Description] <String>] [[-Tag] <Hashtable>] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-AzGalleryImageDefinition -GalleryImageDefinition <PSGalleryImage> [-Force] [-AsJob] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Update a gallery.
+Delete a gallery image definition.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Update-AzureRmGallery -ResourceGroupName $rgname -Name $galleryName -Description $galleryDescription
+PS C:\> Remove-AzGalleryImageDefinition -ResourceGroupName $rgname -GalleryName $gallery -Name $image
 ```
 
-Update a gallery.
+Delete the given gallery image definition.
 
 ## PARAMETERS
 
@@ -56,13 +56,13 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Name
+### -GalleryName
 The name of the gallery.
 
 ```yaml
 Type: String
 Parameter Sets: DefaultParameter
-Aliases: GalleryName
+Aliases:
 
 Required: True
 Position: 1
@@ -71,38 +71,23 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Description
-The description of this gallery resource.
+### -Name
+The name of the gallery image definition.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
-Aliases:
+Parameter Sets: DefaultParameter
+Aliases: GalleryImageName
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Tag
-Resource tags
-
-```yaml
-Type: Hashtable
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
+Required: True
+Position: 2
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -ResourceId
-The resource id for the gallery
+The resource id for the gallery image definition
 
 ```yaml
 Type: System.String
@@ -116,11 +101,11 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Gallery
-Local gallery object
+### -GalleryImageDefinition
+Local gallery image definition object
 
 ```yaml
-Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
+Type: Microsoft.Azure.Commands.Compute.Automation.Models.PSGalleryImage 
 Parameter Sets: ObjectParameter
 Aliases:
 
@@ -152,7 +137,22 @@ The credentials, account, tenant, and subscription used for communication with A
 ```yaml
 Type: IAzureContextContainer
 Parameter Sets: (All)
-Aliases: AzureRmContext, AzureCredential
+Aliases: AzContext, AzureCredential
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Force
+Forces the command to run without asking for user confirmation.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -198,11 +198,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.String
-Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
 
 ## OUTPUTS
 
-### Microsoft.Azure.Commands.Compute.Automation.Models.PSGallery
+### Microsoft.Azure.Commands.Compute.Automation.Models.PSOperationStatusResponse
 
 ## NOTES
 
