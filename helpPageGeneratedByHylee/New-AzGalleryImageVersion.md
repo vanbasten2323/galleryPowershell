@@ -23,9 +23,14 @@ Create a gallery image version.
 
 ### Example 1
 ```powershell
-$region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS}
-$region2 = @{Name='East US';ReplicaCount=2;StorageAccountType=Standard_ZRS}
-$region3 = @{Name='Central US'}
+$osDiskImageEncryption = @{DiskEncryptionSetId='subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myDES'}
+$dataDiskImageEncryption1 = @{DiskEncryptionSetId='subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myDES1';Lun=1}
+$dataDiskImageEncryption2 = @{DiskEncryptionSetId='subscriptions/000000e4-dbcb-4235-bd41-76deb9bd189d/resourceGroups/myRG/providers/Microsoft.Compute/diskEncryptionSets/myDES2';Lun=2}
+$dataDiskImageEncryptions = $($dataDiskImageEncryption1,$dataDiskImageEncryption2)
+$encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImageEncryptions}
+$region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
+$region2 = @{Name='East US';ReplicaCount=2;StorageAccountType=Standard_ZRS;Encryption=$encryption1}
+$region3 = @{Name='Central US';Encryption=$encryption1}
 $targetRegions = @($region1,$region2,$region3)
 New-AzGalleryImageVersion -ResourceGroupName $rgname -GalleryName $galleryName -GalleryImageDefinitionName $imageDefinitionName -Name $versionName -Location $location -SourceId $SourceId -ReplicaCount 2 -StorageAccountType Standard_LRS -PublishingProfileExcludeFromLatest -PublishingProfileEndOfLifeDate $endOfLifeDate -TargetRegion $targetRegions
 ```
